@@ -46,7 +46,7 @@ get_remote_file() {
 	  remoteSize=1
 	fi
 	if [ $localSize -ge $remoteSize ]; then
-	  echo "File exists: skipping"
+	  log "File exists: skipping"
 	else
 	  $curlCommand -k --silent -C - -L -o "$localFile" "$linkLine" # try resuming
 	  if [ $? -ne 0 ]; then
